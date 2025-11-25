@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/bank-transfer/static/css/main.a9cd4266.css",
+    "main.js": "/bank-transfer/static/js/main.ea23474f.js",
+    "static/js/453.7192a627.chunk.js": "/bank-transfer/static/js/453.7192a627.chunk.js",
+    "static/media/qr.png": "/bank-transfer/static/media/qr.34c0113a51386b066bad.png",
+    "index.html": "/bank-transfer/index.html",
+    "main.a9cd4266.css.map": "/bank-transfer/static/css/main.a9cd4266.css.map",
+    "main.ea23474f.js.map": "/bank-transfer/static/js/main.ea23474f.js.map",
+    "453.7192a627.chunk.js.map": "/bank-transfer/static/js/453.7192a627.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a9cd4266.css",
+    "static/js/main.ea23474f.js"
+  ]
+}
