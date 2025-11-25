@@ -1,0 +1,92 @@
+.modal-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+.modal-box {
+  background: white;
+  width: 90%;
+  max-width: 380px;
+  padding: 25px;
+  border-radius: 14px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  background: none;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #666;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.modal-logo {
+  width: 45px;
+  margin-left: 10px;
+}
+
+.red { color: red; font-weight: bold; }
+.blue { color: #1a73e8; font-weight: bold; }
+
+.modal-text {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.modal-warning {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.modal-btn {
+  width: 100%;
+  background: #1a73e8;
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.qr-img {
+  width: 160px;
+  margin: 20px auto;
+  display: block;
+}
+
+.copy-box {
+  display: flex;
+  gap: 10px;
+}
+
+.copy-box input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.copy-btn {
+  padding: 10px 15px;
+  background: #ffc107;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}

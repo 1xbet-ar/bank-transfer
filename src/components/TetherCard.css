@@ -1,0 +1,32 @@
+.card-container {
+  width: 210px;
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: 0.2s;
+}
+
+.card-container:hover {
+  transform: scale(1.05);
+}
+
+.card-top {
+  padding: 25px;
+  background: white;
+  display: flex;
+  justify-content: center;
+}
+
+.card-logo {
+  width: 60px;
+}
+
+.card-bottom {
+  background: #4682b4;
+  text-align: center;
+  padding: 12px;
+  color: white;
+  font-weight: bold;
+}

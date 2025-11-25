@@ -1,38 +1,181 @@
-.App {
+/* ======= عام ======= */
+html, body, #root { height: 100%; }
+body { margin: 0; font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial; background:#f3f6f9; color:#111; }
+
+/* رأس الصفحة */
+.top-bar {
+  background: #0a1624;
+  color: #ffd166;
+  padding: 16px;
   text-align: center;
+  font-weight: 700;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* بطاقة الدفع - الحاوية */
+.tron-card-container {
+  width: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e1e6ee;
+  box-shadow: 0 6px 18px rgba(13, 24, 36, 0.08);
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease;
 }
+.tron-card-container:focus { outline: none; box-shadow: 0 8px 22px rgba(13,24,36,0.14); }
+.tron-card-container:hover { transform: translateY(-4px); }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* المنطقة العلوية للشعارات */
+.tron-card-icon-area {
+  padding: 18px 12px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  background: #ffffff;
+}
+.tron-card-icon-area img { width: 56px; height: 56px; object-fit: contain; }
+
+/* الجزء السفلي للنص */
+.tron-card-text-area { background: #1d3a59; padding: 12px; text-align: center; }
+.tron-card-text { color: #fff; font-weight: 700; margin: 0; font-size: 16px; }
+
+/* ======= مودال الدفع ======= */
+/* الخلفية الغامقة */
+.modal-payment__container, .modal-qr {
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
+}
+
+/* مربع المودال */
+.payment_modal_body, .modal-qr-content {
+  width: 92%;
+  max-width: 480px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 18px;
+  position: relative;
+  box-shadow: 0 12px 40px rgba(2,12,27,0.18);
+}
+
+/* رأس المودال */
+.payment_modal_header {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 8px;
+  padding-bottom: 8px;
+}
+
+/* صورة العملة داخل المودال */
+.payment-cell__img { width: 48px; height: 48px; object-fit: contain; }
+
+/* زر إغلاق دائري فوق المودال */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  background: #ff4d4d;
+  color: #fff;
+  border-radius: 50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  font-weight:700;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+.close-btn:hover { transform: scale(1.06); }
+
+/* محتوى التحذيرات */
+.payment_modal_content.html_attention { font-size: 14px; color: #123; line-height: 1.4; }
+
+/* زر التأكيد */
+.payment_modal_btn {
+  background: #ffd166;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 8px;
+}
+.payment_modal_btn:disabled { opacity: 0.7; cursor: not-allowed; }
+
+/* preloader نقاط */
+.preloader { display:flex; justify-content:center; gap:8px; margin-top:12px; }
+.preloader .dot { width:10px; height:10px; background:#ffd166; border-radius:50%; animation: bounce 0.8s infinite ease-in-out; }
+.preloader .dot:nth-child(2){ animation-delay: .12s; }
+.preloader .dot:nth-child(3){ animation-delay: .24s; }
+@keyframes bounce { from{ transform: translateY(0);} to{ transform: translateY(-8px);} }
+
+/* ======= مودال QR ======= */
+.qr-image { width: 200px; height: 200px; object-fit: contain; display: block; margin: 6px auto; }
+.address-box { display:flex; gap:8px; justify-content:center; margin-top:12px; align-items:center; }
+.address-box input { padding:8px 10px; border-radius:8px; border:1px solid #ddd; width: 65%; }
+.copy-btn { padding:8px 10px; border-radius:8px; border:none; background:#ffd166; font-weight:700; cursor:pointer; }
+body {
+  margin: 0;
+  padding: 0;
+  background: #f3f5f7;
+  font-family: Arial, sans-serif;
+}
+
+.app-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;   /* الوسط أفقي */
+  align-items: center;       /* الوسط عمودي */
+  background: #f3f5f7;
+}
+
+.page {
+  min-height: 100vh;
+  width: 100%;
+  background: #f3f5f7;
+}
+
+/* رأس الصفحة */
+.page-header {
+  width: 100%;
+  background: #1d4268; /* اللون الأحمر */
   color: white;
+  text-align: center;
+  padding: 18px 0;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-.App-link {
-  color: #61dafb;
+/* حاوية البطاقات */
+.card-area {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px; /* المسافة بين العنوان والبطاقة */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.card-background {
+  background-color: #d0dae1;
+  padding: 25px;
+  border-radius: 0px;
+  width: 100%;
+  max-width: 4020px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
 }
